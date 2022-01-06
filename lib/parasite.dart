@@ -1,3 +1,3 @@
-library flow;
+library parasite;
 
 export 'src/parasite.dart';
