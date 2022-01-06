@@ -52,7 +52,8 @@ class HostProvider<T extends ParasiteHost<Object>> extends InheritedWidget {
 
   /// Gets a [HostProvider] of the specified host in [context].
   static HostProvider<T> of<T extends ParasiteHost<Object>>(
-      BuildContext context) {
+    BuildContext context,
+  ) {
     final provider =
         context.dependOnInheritedWidgetOfExactType<HostProvider<T>>();
     assert(provider != null, 'No HostProvider found in the context');

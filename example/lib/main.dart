@@ -19,34 +19,31 @@ class App extends StatelessWidget {
     final counterHost = HostProvider.of<CounterHost>(context).host;
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: const Text('PARASITE'),
-        ),
+        appBar: AppBar(title: const Text('PARASITE')),
         body: Parasite(
           host: counterHost,
           builder: (context, value) {
             final counter = value as int;
-            return Text('The Value is $counter');
+            return Center(child: Text('The Value is $counter'));
           },
         ),
-        floatingActionButton: Align(
-          alignment: Alignment.bottomRight,
-          child: Column(
-            children: [
-              FloatingActionButton(
-                onPressed: () {
-                  counterHost.increment();
-                },
-                child: const Icon(Icons.add),
-              ),
-              FloatingActionButton(
-                onPressed: () {
-                  counterHost.decrement();
-                },
-                child: const Icon(Icons.remove),
-              )
-            ],
-          ),
+        floatingActionButton: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            FloatingActionButton(
+              onPressed: () {
+                counterHost.increment();
+              },
+              child: const Icon(Icons.add),
+            ),
+            const SizedBox(height: 24),
+            FloatingActionButton(
+              onPressed: () {
+                counterHost.decrement();
+              },
+              child: const Icon(Icons.remove),
+            )
+          ],
         ),
       ),
     );
